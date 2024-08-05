@@ -7,19 +7,23 @@ public class Prime_number {
         Scanner input=new Scanner(System.in);
         System.out.println("Enter your number N: ");
         int numberN=input.nextInt();
-        final int NUMBER_OF_PRIMES = 50;
-        int count=0;
-        while (count < NUMBER_OF_PRIMES) {
-            // Assume the number is prime
-            boolean isPrime = true;
-            for (int divisor = 2; divisor <= numberN / 2; divisor++) {
-                if (numberN % divisor == 0) {
-                    isPrime = false; // Set isPrime to false
-                    break;// If true, number is not prime
-
+        int count = 0;
+        int num = 2;
+        System.out.println("First " + numberN + " prime numbers are:");
+        while (count < numberN) {
+                boolean isPrime = true;
+                    for (int i = 2; i <= Math.sqrt(num); i++) {
+                        if (num % i == 0) {
+                            isPrime = false;
+                            break;
+                        }
+                    }
+                    if (isPrime) {
+                        System.out.print(num + " ");
+                        count++;
+                    }
+                    num++;
                 }
 
-            }
-        }
     }
 }
